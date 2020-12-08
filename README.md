@@ -1,5 +1,5 @@
 # Deep-Learning-paper-implementations
-Implementations of Deep Learning papers using PyTorch
+Implementations of Deep Learning papers using PyTorch and TensorFlow 2.0/Keras
 
 # Papers used
 * [LeNet-5 paper](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
