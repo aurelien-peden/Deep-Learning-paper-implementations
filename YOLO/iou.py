@@ -11,6 +11,7 @@ def intersection_over_union(boxes_predictions, boxes_labels):
     Returns:
         tensor: Intersection over Union for all the bounding boxes
     """
+    epsilon = 1e-6
 
     # The bounding boxes coordinates consists of the x, y
     # coordinates that represent the center of the box relative
@@ -48,8 +49,9 @@ def intersection_over_union(boxes_predictions, boxes_labels):
     boxes_labels_area = (boxes_labels_x2 - boxes_labels_x1) * \
         (boxes_labels_y2 - boxes_labels_y1)
 
-    iou = intersection_area / (boxes_predictions_area + boxes_labels_area
-                               - intersection_area + 1e-9)
+    union = boxes_predictions_area + boxes_labels_area - intersection_area
+
+    iou = intersection_area / (union + epsilon)
 
     assert iou >= 0.0
     assert iou <= 1.0
