@@ -5,11 +5,11 @@ from collections import Counter
 from iou import intersection_over_union
 
 
-def mean_avg_precision(prediciton_boxes, true_boxes, iou_threshold=0.5, num_classes=20):
+def mean_avg_precision(predicted_boxes, true_boxes, iou_threshold=0.5, num_classes=20):
     """Calculate mean average precision
 
     Args:
-        prediciton_boxes (list): list of all the bounding boxes described as [train_idx, class_pred, prob_score, x1, y1, x2, y2]
+        predicted_boxes (list): list of all the bounding boxes described as [train_idx, class_pred, prob_score, x1, y1, x2, y2]
         true_boxes (list): list of all the correct bounding boxes, similar to the prediction boxes
         iou_threshold (float, optional): threshold where the predicted bounding boxes is correct. Defaults to 0.5.
         num_classes (int, optional): number of classes. Defaults to 20.
@@ -24,7 +24,7 @@ def mean_avg_precision(prediciton_boxes, true_boxes, iou_threshold=0.5, num_clas
     for c in range(num_classes):
         detections = []
 
-        for prediction in prediciton_boxes:
+        for prediction in predicted_boxes:
             if prediction[1] == c:
                 detections.append(prediction)
 
