@@ -6,7 +6,7 @@ def non_max_supression(predicted_boxes, iou_threshold, prob_threshold):
     """Perform Non Max Supression over the given bounding boxes
 
     Args:
-        predicted_boxes (list): list of all the predicted bounding boxes
+        predicted_boxes (list): list of all the predicted bounding boxes described as [class_pred, prob_score, x1, y1, x2, y2]
         iou_threshold (float): threshold for when a predicted bounding box is correct
         prob_threshold (float): threshold to remove predicted bounding boxes with low probabilities
 
